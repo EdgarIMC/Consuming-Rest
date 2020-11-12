@@ -36,7 +36,7 @@ public class ConsumeRest {
 	
 	@GetMapping("/search")
 	public Pelicula getPelicula(@RequestParam String nombre) {
-		Pelicula pelicula = restTemplate.getForObject("http://www.omdbapi.com/?t="+nombre+"&apikey=b84c77da", Pelicula.class);
+		Pelicula pelicula = restTemplate.getForObject("http://www.omdbapi.com/?t="+nombre+"&apikey=00000000", Pelicula.class);
 		return pelicula;
 	}
 	
@@ -47,7 +47,7 @@ public class ConsumeRest {
 	
 	@PostMapping("/insert")
 	public void insertPelicula(@RequestBody RegistroPeliculas reg) {
-		Pelicula pelicula = restTemplate.getForObject("http://www.omdbapi.com/?t="+reg.getNombre()+"&apikey=b84c77da", Pelicula.class);
+		Pelicula pelicula = restTemplate.getForObject("http://www.omdbapi.com/?t="+reg.getNombre()+"&apikey=00000000", Pelicula.class);
 		reg.setImdbID(pelicula.getImdbId());
 		repo.save(reg);		
 	}
