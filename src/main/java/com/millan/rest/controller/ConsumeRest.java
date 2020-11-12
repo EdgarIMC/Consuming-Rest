@@ -53,7 +53,7 @@ public class ConsumeRest {
 	}
 	@PutMapping("/update")
 	public void updatePelicula(@RequestBody RegistroPeliculas reg) {
-		Pelicula pelicula = restTemplate.getForObject("http://www.omdbapi.com/?t="+reg.getNombre()+"&apikey=b84c77da", Pelicula.class);
+		Pelicula pelicula = restTemplate.getForObject("http://www.omdbapi.com/?t="+reg.getNombre()+"&apikey=00000000", Pelicula.class);
 		reg.setImdbID(pelicula.getImdbId());
 		repo.save(reg);		
 	}
